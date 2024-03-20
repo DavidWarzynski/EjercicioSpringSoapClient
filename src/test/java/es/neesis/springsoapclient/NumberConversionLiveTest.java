@@ -32,9 +32,27 @@ public class NumberConversionLiveTest {
     }
 
     @Test
+    public void testNumberToDollarInvalid(){
+        try {
+            numberConversionClient.numberToDollars(BigDecimal.valueOf(-100.00));
+        }catch (IllegalArgumentException e){
+            assertEquals("Number must be greater than 0",e.getMessage());
+        }
+    }
+
+    @Test
     public void testNumberToWordsValid(){
         NumberToWordsResponse testNumberToWords =
                 numberConversionClient.numberToWords(BigInteger.valueOf(100));
         assertEquals("one hundred ",testNumberToWords.getNumberToWordsResult());
+    }
+
+    @Test
+    public void testNumberToWordsInvalid(){
+        try {
+            numberConversionClient.numberToWords(BigInteger.valueOf(-100));
+        }catch (IllegalArgumentException e){
+            assertEquals("Number must be greater than 0",e.getMessage());
+        }
     }
 }

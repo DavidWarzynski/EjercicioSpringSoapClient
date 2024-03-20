@@ -13,14 +13,21 @@ public class NumberConversionClient extends WebServiceGatewaySupport {
 
     public NumberToDollarsResponse numberToDollars(BigDecimal number){
         NumberToDollars numberToDollars = new NumberToDollars();
-        numberToDollars.setDNum(number);
-
+        if (number!= null && number.doubleValue() > 0.0){
+            numberToDollars.setDNum(number);
+        }else {
+            throw new IllegalArgumentException("Number must be greater than 0");
+        }
         return (NumberToDollarsResponse) getWebServiceTemplate().marshalSendAndReceive(numberToDollars);
     }
 
     public NumberToWordsResponse numberToWords(BigInteger number){
         NumberToWords numberToWords = new NumberToWords();
-        numberToWords.setUbiNum(number);
+        if (number!= null && number.doubleValue() > 0.0){
+            numberToWords.setUbiNum(number);
+        }else {
+            throw new IllegalArgumentException("Number must be greater than 0");
+        }
 
         return (NumberToWordsResponse) getWebServiceTemplate().marshalSendAndReceive(numberToWords);
     }
