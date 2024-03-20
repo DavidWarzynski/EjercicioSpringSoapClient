@@ -9,7 +9,7 @@ import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class NumberConversionClient  extends WebServiceGatewaySupport {
+public class NumberConversionClient extends WebServiceGatewaySupport {
 
     public NumberToDollarsResponse numberToDollars(BigDecimal number){
         NumberToDollars numberToDollars = new NumberToDollars();
