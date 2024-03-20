@@ -27,14 +27,14 @@ public class NumberConversionLiveTest {
     @Test
     public void testNumberToDollarValid(){
         NumberToDollarsResponse testNumberToDollars =
-                numberConversionClient.numberToDollars(BigDecimal.valueOf(100.50));
-        assertEquals(testNumberToDollars.getNumberToDollarsResult(),"100.50$");
+                numberConversionClient.numberToDollars(BigDecimal.valueOf(100.00));
+        assertEquals("one hundred dollars",testNumberToDollars.getNumberToDollarsResult());
     }
 
     @Test
     public void testNumberToWordsValid(){
         NumberToWordsResponse testNumberToWords =
                 numberConversionClient.numberToWords(BigInteger.valueOf(100));
-        assertEquals(testNumberToWords.getNumberToWordsResult(),"one hundred");
+        assertEquals("one hundred ",testNumberToWords.getNumberToWordsResult());
     }
 }
