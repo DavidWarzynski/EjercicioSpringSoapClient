@@ -17,7 +17,7 @@ public class NumberConversionClientConfig {
     @Bean
     public NumberConversionClient numberConversionClient(Jaxb2Marshaller marshaller) {
         NumberConversionClient client = new NumberConversionClient();
-        client.setDefaultUri("http://localhost:8080/ws");
+        client.setDefaultUri("https://www.dataaccess.com/webservicesserver/NumberConversion.wso");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
         return client;
